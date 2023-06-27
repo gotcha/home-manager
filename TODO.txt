@@ -1,0 +1,3 @@
+- update tmux plugin sessionist in nixpkgs
+- update vimelette in nixpkgs
+- setup tmux resurrect plugin
