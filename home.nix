@@ -18,8 +18,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.ripgrep
     pkgs.fd
+    pkgs.just
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -76,6 +76,8 @@
 
   programs.bat.enable = true;
 
+  programs.bottom.enable = true;
+
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
   programs.direnv.nix-direnv.enable = true;
@@ -92,6 +94,9 @@
     nvim-treesitter
     surround
     vim-commentary
+    gitsigns-nvim
+    lualine-nvim
+    vim-obsession
   ];
   programs.neovim.extraConfig = ''
     let mapleader=","
@@ -108,5 +113,9 @@
 
   programs.mcfly.enable = true;
   programs.mcfly.enableZshIntegration = true;
+
+  programs.ripgrep.enable = true;
+
+  programs.git-credential-oauth.enable = true;
 
 }
