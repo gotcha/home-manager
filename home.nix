@@ -73,6 +73,11 @@
     co = "checkout";
     st = "status";
   }; 
+  programs.git.includes = [
+    { path = "~/.config/git/git-credential-oauth.inc"; }
+  ];
+  programs.git.userName = "Godefroid Chapelle";
+  programs.git.userEmail = "gotcha@bubblenet.be";
 
   programs.bat.enable = true;
 
@@ -117,5 +122,13 @@
   programs.ripgrep.enable = true;
 
   programs.git-credential-oauth.enable = true;
+
+  xdg.enable = true;
+  xdg.configFile."git/git-credential-oauth.inc".text = ''
+    [credential]
+    helper = osxkeychain
+    helper = cache --timeout 7200	# two hours
+    helper = oauth
+  '';
 
 }
