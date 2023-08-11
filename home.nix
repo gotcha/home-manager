@@ -91,7 +91,8 @@
   programs.neovim.defaultEditor = true;
   programs.neovim.vimAlias = true;
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    fugitive
+    { plugin = fugitive;
+    }
     vinegar
     vimelette
     bufexplorer
@@ -102,12 +103,17 @@
     gitsigns-nvim
     lualine-nvim
     vim-obsession
+    nvim-web-devicons
   ];
   programs.neovim.extraConfig = ''
+    set autochdir
     let mapleader=","
-    " Fugitive
-    nnoremap <leader>gs :G<cr>
+		" fugitive
+		nnoremap <leader>gs :G<cr>
+		" bufexplorer
     nnoremap <leader>b :BufExplorer<cr>
+		" commentary
+		autocmd FileType nix setlocal commentstring=#\ %s
   '';
 
   programs.tmux.enable = true;
