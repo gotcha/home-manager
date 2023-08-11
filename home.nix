@@ -104,16 +104,25 @@
     lualine-nvim
     vim-obsession
     nvim-web-devicons
+    nvim-dap
+    nvim-dap-ui
+    nvim-dap-virtual-text
+    nvim-dap-python
   ];
   programs.neovim.extraConfig = ''
     set autochdir
+    " for devicons
+    set encoding=UTF-8
     let mapleader=","
-		" fugitive
-		nnoremap <leader>gs :G<cr>
-		" bufexplorer
+    " fugitive
+    nnoremap <leader>gs :G<cr>
+    " bufexplorer
     nnoremap <leader>b :BufExplorer<cr>
-		" commentary
-		autocmd FileType nix setlocal commentstring=#\ %s
+    " for commentary
+    autocmd FileType nix setlocal commentstring=#\ %s
+  '';
+  programs.neovim.extraLuaConfig = ''
+    require('dapui').setup()
   '';
 
   programs.tmux.enable = true;
@@ -133,8 +142,13 @@
   xdg.configFile."git/git-credential-oauth.inc".text = ''
     [credential]
     helper = osxkeychain
-    helper = cache --timeout 7200	# two hours
+    helper = cache --timeout 7200  # two hours
     helper = oauth
   '';
 
 }
+
+# TODO
+# Install mononoki font
+# download mononoki font
+# setup mononoki font in iTerm
