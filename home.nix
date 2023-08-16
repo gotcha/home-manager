@@ -126,10 +126,25 @@
   '';
 
   programs.tmux.enable = true;
+  programs.tmux.baseIndex = 1;
   programs.tmux.prefix = "C-a";
   programs.tmux.plugins = with pkgs.tmuxPlugins; [
     sessionist
+    resurrect
+    continuum
   ];
+  programs.tmux.extraConfig = ''
+    bind c new-window -c "#{pane_current_path}"
+    bind r source-file ~/.config/tmux/tmux.conf\; display "Reloaded"
+
+    set -g @resurrect-processes 'vim nvim'
+    set -g @resurrect-strategy-vim 'session'
+    set -g @resurrect-strategy-nvim 'session'
+    set -g @continuum-restore 'on'
+    set -g @continuum-boot 'on'
+    set -g @continuum-boot-options 'iterm,fullscreen'
+    set -g @continuum-save-interval '5'
+  '';
 
   programs.mcfly.enable = true;
   programs.mcfly.enableZshIntegration = true;
