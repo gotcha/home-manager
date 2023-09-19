@@ -20,6 +20,8 @@
   home.packages = [
     pkgs.fd
     pkgs.just
+    pkgs.gitui
+    pkgs.btop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -98,6 +100,7 @@
     bufexplorer
     telescope-nvim
     nvim-treesitter
+    nvim-treesitter-textobjects
     surround
     vim-commentary
     gitsigns-nvim
