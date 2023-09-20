@@ -66,9 +66,32 @@
   programs.home-manager.enable = false;
 
   programs.zsh.enable = true;
+  programs.zsh.enableAutosuggestions = true;
+  programs.zsh.syntaxHighlighting.enable = true;
+  programs.zsh.historySubstringSearch.enable = true;
   programs.zsh.sessionVariables = {
     EDITOR = "nvim";
   };
+  programs.zsh.plugins = [
+    {
+      name = "you-should-use";
+      src = pkgs.fetchFromGitHub {
+        owner = "MichaelAquilina";
+        repo = "zsh-you-should-use";
+        rev = "1f9cb008076d4f2011d5f814dfbcfbece94a99e0";
+        sha256 = "sha256-lKs6DhG3x/oRA5AxnRT+odCZFenpS86wPnPqxLonV2E=";
+      };
+    }
+    {
+      name = "auto-notify";
+      src = pkgs.fetchFromGitHub {
+        owner = "MichaelAquilina";
+        repo = "zsh-auto-notify";
+        rev = "22b2c61ed18514b4002acc626d7f19aa7cb2e34c";
+        sha256 = "sha256-x+6UPghRB64nxuhJcBaPQ1kPhsDx3HJv0TLJT5rjZpA=";
+      };
+    }
+  ];
 
   programs.git.enable = true;
   programs.git.aliases = {
