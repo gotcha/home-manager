@@ -68,6 +68,8 @@
   programs.zsh.enable = true;
   programs.zsh.enableAutosuggestions = true;
   programs.zsh.syntaxHighlighting.enable = true;
+  programs.zsh.history.save = 2000000;
+  programs.zsh.history.size = 2000000;
   programs.zsh.historySubstringSearch.enable = true;
   programs.zsh.sessionVariables = {
     EDITOR = "nvim";
