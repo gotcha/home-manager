@@ -105,6 +105,9 @@
   ];
   programs.git.userName = "Godefroid Chapelle";
   programs.git.userEmail = "gotcha@bubblenet.be";
+  programs.git.extraConfig = {
+    pull = { rebase = true; };
+  };
 
   programs.bat.enable = true;
 
