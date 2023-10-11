@@ -22,6 +22,8 @@
     pkgs.just
     pkgs.gitui
     pkgs.btop
+    pkgs.fh
+    pkgs.gh
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -110,6 +112,9 @@
   };
 
   programs.bat.enable = true;
+  programs.bat.config = {
+    theme = "Solarized (light)";
+  };
 
   programs.bottom.enable = true;
 
