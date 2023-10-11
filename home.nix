@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "gotcha";
-  home.homeDirectory = "/Users/gotcha";
+  home.homeDirectory = pkgs.lib.mkDefault "/Users/gotcha";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
