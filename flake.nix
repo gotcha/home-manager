@@ -18,15 +18,15 @@
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./home.nix ];
+      home = ./home.nix;
     in {
-      modules = modules;
+      home = home;
       homeConfigurations."gotcha" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = modules;
+        modules = [ home ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
